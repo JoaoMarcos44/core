@@ -8,3 +8,5 @@ The caller can pass one effect options object to more than one effect. The 3.6 p
 
 Generated with the native image_gen tool. [Exact prompt](prompt.txt). The diagrams describe proposed changes; the issues contain executable reproductions.
 
+Visual theme: botanical garden. The illustrations use this metaphor to explain the same underlying behavior and proposed correction.
+

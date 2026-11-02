@@ -8,3 +8,5 @@ A select change handler can replace the keyed option currently selected while th
 
 Generated with the native image_gen tool. [Exact prompt](prompt.txt). The diagrams describe proposed changes; the issues contain executable reproductions.
 
+Visual theme: Art Deco railway station. The illustrations use this metaphor to explain the same underlying behavior and proposed correction.
+

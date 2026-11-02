@@ -8,3 +8,5 @@ These materials accompany three focused Vue Core contributions. The source-code 
 - [#16100: effect() mutates shared options and rejects frozen options in the ESM build](effect-options/infographic_report.md)
 
 Each folder includes a runnable SFC Playground link, App.vue, infographic.png and the exact image-generation prompt. No P0/P1 severity claim is made; the reports describe the observed impact.
+
+Updated visual themes: a fantasy library for lexical scopes, an Art Deco railway station for select/model synchronization, and a botanical garden for shared effect options.

@@ -8,3 +8,5 @@ The SFC compiler rewrites destructured prop reads to preserve reactivity. Local 
 
 Generated with the native image_gen tool. [Exact prompt](prompt.txt). The diagrams describe proposed changes; the issues contain executable reproductions.
 
+Visual theme: fantasy library. The illustrations use this metaphor to explain the same underlying behavior and proposed correction.
+

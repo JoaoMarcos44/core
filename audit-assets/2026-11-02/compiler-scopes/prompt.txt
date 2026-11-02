@@ -1,10 +1,9 @@
-Create a polished English engineering infographic for a Vue Core pull request, landscape around1600x1000, fully opaque ivory background. Visual style: precise modern editorial diagram with forest-green outlines, Vue green fixes, restrained amber for the buggy state; large legible typography, roomy layout. No severity badge, no claim of novelty, no unsupported test counts, no fake logos.
-Title verbatim: "Reactive props: respect JavaScript scopes".
-Small subtitle: "Issue #16098 · Vue 3.5.44 and 3.6.0-rc.14".
-Use TWO INDEPENDENT examples side by side, not a catch nested inside a switch. Left example heading "catch pattern"; draw outer "prop: message" box and separate inner "local: message" parameter box, body scope inside parameter scope. Right example heading "switch cases"; show "discriminant" outside one shared cases scope containing "local: message".
-Upper half clearly labelled "Before": both examples have amber arrows pointing to the outer prop with short label "Local reads become prop reads".
-Lower half clearly labelled "Proposed fix": green arrows keep reads on local bindings, while reads outside retain access to the prop.
-Two precise small explanatory lines: "Catch parameters and body keep separate scopes." and "Cases share one scope; the discriminant stays outside.".
-Footer verbatim: "Minimal compiler fix + execution-based regression tests".
-Make the architecture, problem and solution clear through the illustrations and short text. No dense source code.
+Completely redesign the reference infographic in a different visual theme. Keep the technical facts and issue number, but replace the engineering-board look with a lush illustrated FANTASY LIBRARY: midnight-blue and plum shelves, warm gold candlelight, hand-painted storybook rooms, elegant cream labels, beautiful small books. A sophisticated editorial infographic for adult open-source developers, not a children's worksheet. Landscape roughly1600x1000, fully opaque.
+Main title exact: "Same name, different room".
+Subtitle exact: "Reactive props and JavaScript scopes · Issue #16098".
+Clearly separate two library rooms labelled "catch" and "switch"; neither room is nested inside the other. A central library catalogue is labelled "Outer prop". Each room has its own book labelled "Local binding".
+Use an illustrated two-part story: "Before" shows a reader inside each room incorrectly receiving a book from the Outer prop catalogue; short caption exact "Local reads become prop reads." The "Proposed fix" scene shows each reader receiving the Local binding book from their own room, while the outer catalogue remains available outside.
+Small precise labels: "Catch parameter and body: separate scopes" and "Switch cases: shared scope; discriminant outside".
+Footer exact: "Preserve local values and keep outer props reactive."
+Use larger, concise text and let the fantasy-library metaphor explain the problem. Add no test counts, severity claims, or new technical facts. All text in English.
 
