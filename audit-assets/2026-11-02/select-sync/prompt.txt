@@ -1,0 +1,10 @@
+Create a finished English infographic for a Vue Core bugfix pull request, landscape around1600x1000, opaque ivory background. Style: clean editorial UI diagrams, dark forest-green text and outlines, Vue green for corrected state, amber for observed bug, generous spacing, very legible large typography. No severity label, no security symbols, no novelty claim, no numeric test counts.
+Title verbatim: "Keep select and model in sync".
+Subtitle: "Issue #16099 · Vue 3.5.44 and 3.6.0-rc.14".
+Top small sequence of 3 illustrated steps: "1  Choose B" then "2  Replace the selected option" then "3  Flush the update". Draw two option lists with keyed item B replaced by a new keyed item B, explaining that B remains a valid value.
+Main before/after diagram: upper row labelled "Before" has a data token labelled "Model: B" connected to an amber select dropdown visibly showing "A". Caption exact: "The browser changed the selection; the model did not."
+Lower row labelled "Proposed fix" has "Model: B" connected to a green select dropdown visibly showing "B". Caption exact: "Check the selected option after patching."
+A small callout exact: "Preserve existing selections among duplicate values."
+Footer exact: "Single select · minimal runtime change · regression coverage".
+Explain why comparing only the pending model is insufficient through the visual mismatch, without dense source code. Make both dropdown states unmistakable.
+

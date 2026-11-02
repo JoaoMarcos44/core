@@ -1,0 +1,10 @@
+Create a professional English infographic for a Vue Core pull request, landscape around1600x1000, opaque ivory background. Modern engineering editorial style, precise forest-green outlines, Vue green for proposed corrected behavior, muted amber for buggy behavior, large crisp type and generous whitespace. No priority/severity badges, no claims of novelty, no fake logos, no test counts.
+Title verbatim: "Effect options belong to the caller".
+Subtitle: "Issue #16100 · regression in 3.6.0-rc.14".
+Two illustrated rows.
+Row1 heading "Before": one caller-owned configuration card with two entries "scheduler" and "onStop" feeds Effect1. After that call, draw the configuration with callbacks faded out; Effect2 receives that depleted card. Use exact caption "Reusing the options loses callbacks." Add small amber note "Frozen options throw TypeError in ESM."
+Row2 heading "Proposed fix": original configuration stays intact; two clear green arrows feed Effect1 and Effect2 with both callbacks. Explain with short exact sentence "Extract callbacks without changing the input." Add small green note "Frozen options are accepted."
+Bottom small comparison strip: "Shared options: both effects keep scheduler and onStop.".
+Footer exact: "3.5.44 unaffected · focused fix on the minor branch".
+Make ownership, problem and solution understandable without source code. Avoid suggesting all Vue rendering is broken. Use calm visual communication suitable for an open-source contribution.
+
