@@ -1,37 +1,33 @@
-# Same key, different selection
+# Same choice, different display
 
-![An illustrated assignee select: Bob moves into Project members with the same key, but the model says Bob while the select shows Alice.](infographic.png)
+![A minimal drawing: choose Bob, move his option to Project members, then observe Model Bob and Select Alice. The expected result is Bob in both.](infographic.png)
 
-This AI-generated conceptual illustration accompanies [Vue issue #16099](https://github.com/vuejs/core/issues/16099) and [PR #16102](https://github.com/vuejs/core/pull/16102). It is a constructed example, not a screenshot or a reported production incident.
+Illustration for [Vue issue #16099](https://github.com/vuejs/core/issues/16099) and [PR #16102](https://github.com/vuejs/core/pull/16102). The runnable example is [App.vue](App.vue).
 
-## Architecture and use case
+## How it works
 
-A native select uses `v-model` for the assignee ID. Its options are grouped into Project members and Other people. Selecting Bob also adds him to the local project membership immediately, as an optimistic UI update. [App.vue](App.vue) contains the runnable example.
+The model stores the selected person's ID. A native select displays people in two groups: Project members and Other people.
 
-Bob keeps the same `key="bob"` and `value="bob"`. Moving him to a different `optgroup` parent creates a new option element. Stable keys identify children within a parent; they do not keep the old option node when it changes parents.
+Choosing Bob immediately adds him to the project. His key and value stay `bob`, but moving to another `optgroup` recreates his option element. Keys identify children within their current parent.
 
-## Observed problem
+## The problem
 
-In the published Vue 3.5.44 development bundle, Chrome 156 showed this result after selecting Bob and completing the update: the model was `bob`, but the native select displayed Alice at index 0. The selected Bob value still existed among the options.
+In the Vue 3.5.44 reproduction, the model remembers Bob while the browser displays Alice after rebuilding the options. A matching model value does not guarantee that the browser kept the selected option.
 
-The pending change value still matches the model, but that does not prove the browser kept the selected option after the list changed.
+## The proposed fix
 
-## Proposed solution
+Remember the user's selection during the change. If rebuilding the list replaces that selection, restore a matching option. Bob should appear in both the model and the select. Current implementation and validation details are in the PR.
 
-Before skipping synchronization after a single-select change, check whether the selected option survived the update. Preserve an intact selection; restore a matching option when the update disturbed it. The expected outcome is Bob in both the model and the visible select.
+## Evidence limits
 
-The source-code changes and current validation results are documented in the PR. The image does not claim the fix has shipped.
-
-## Other illustrative use case and evidence limits
-
-A local create-tag action can also replace a synthetic option (`key=create:vue`) with a real record (`key=tag:2`) while the selected value remains `vue`. These keys identify different entries, rather than randomly changing the identity of one record.
-
-Both scenarios are constructed examples. Public-source research did not establish an independent production incident with this exact mechanism. Similar public select reports have different causes and are not presented as proof of production impact.
+This is a constructed example, not a screenshot or an independently documented production incident. The drawing does not claim the fix has shipped. Previous browser assertions passed, but browser shutdown required forced cleanup; the PR records that limitation.
 
 ## Generation
 
-- Tool: native `image_gen`, editing the preceding blue-and-gold observatory illustration.
-- Prompt helper: `python scripts/pr_infographic_prompt.py --title ... --summary ... --docs ... --json`, executed directly with Python from `C:/Users/Nitro/Projects/t3code-publication`.
-- Final file: `infographic.png`.
-- Exact final prompt: [prompt.txt](prompt.txt).
-- Visual inspection: Bob's unchanged identity, group movement, observed Bob/Alice mismatch, expected Bob/Bob result, and the evidence-limit caption are legible.
+- Tool: native GPT Images through `image_gen`.
+- Direction: minimal line drawings, a light background, simple avatars, short labels, and two accent colors.
+- The previous image supplied the factual story; its visual style was replaced.
+- Prompt helper: `python scripts/pr_infographic_prompt.py --title ... --summary ... --docs ... --json`, run directly with Python from `C:/Users/Nitro/Projects/t3code-publication`.
+- Final image: [infographic.png](infographic.png).
+- Exact generation prompt: [prompt.txt](prompt.txt).
+- Helper output: [prompt_seed.json](prompt_seed.json).
