@@ -1,0 +1,14 @@
+Create a polished, easy-to-read conceptual infographic in English. Illustrate the architecture, the observed problem, and the expected behavior. Use short, accurate labels. Mark observed behavior and expected behavior clearly. The image is an illustration, not a product screenshot. Do not imply a fix has shipped or that an unperformed test was run.
+
+Title: Same key, different selection
+Summary: A native assignee select has Project members and Other people groups. Selecting Bob immediately adds him to the project. His key and value stay bob, but moving between optgroups recreates the option. In the observed Vue 3.5.44 reproduction, the model remains Bob while the select shows Alice. The proposed fix checks whether the selected option survived the update and restores the matching selection only when needed.
+
+EDIT TARGET: the provided existing fantasy observatory illustration. Redesign its composition to tell this updated story clearly, retaining its midnight-blue and gold illustrated observatory, astronomer and celestial atmosphere. Make the technical mismatch understandable at a glance, with a much calmer backdrop behind typography.
+
+Landscape 16:9, high quality, three equal sequential illustrated scenes across the page, connected by restrained gold arrows, and a narrow footer. Precise, restrained typography. Use illustrated physical identity cards to represent people, with the same bright cyan BOB card and bob identity badge recurring across scenes.
+Scene 1 title: "1. Choose Bob". The astronomer points to the BOB card on a board called "Other people"; a neighboring board "Project members" holds ALICE. A small label reads "key: bob".
+Scene 2 title: "2. Move to project". A gold arrow carries the BOB card to the "Project members" board below ALICE. Clearly communicate that Bob's identity stays the same while the displayed option is rebuilt. Small caption: "Same key, new option".
+Scene 3 title: "3. Observed mismatch". The largest key visual: a cyan model crystal labeled "MODEL: BOB" and, beside it, an amber selector plaque reading "SELECT: ALICE", with a clear broken link between them. These two labels must be prominent and exact, without reversed values.
+Under the scenes, a small green EXPECTED inset reads "MODEL: BOB  |  SELECT: BOB". Below it, concise text: "Proposed fix: recheck the selection after the update."
+Small legible footer: "Constructed example • Vue 3.5.44 • Not a production incident".
+Do not add any extra paragraphs, fake interface screenshots, test counts, charts, benchmarks, logos, or claims that the fix is released. Every label should be spelled correctly. Keep the illustration artistic and expressive, but prioritize clarity of the model/selection disagreement. Opaque background.
